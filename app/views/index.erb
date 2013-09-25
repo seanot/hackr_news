@@ -2,6 +2,7 @@
 <% Post.all.each do |post| %>
 <li><a href="<%= post.url%>"><%= post.title%></a>
 <p>by: <a href="/user/<%= post.user.id%>"><%=post.user.email%></a> <a href='/post/<%=post.id%>'>Comments</a></p></li>
+<% if session[:user_id] %><a href='/postvote/<%=post.id%>'>Vote!</a><%= post.votes.count %><% end %>
 <%end%>
 </ul>
 

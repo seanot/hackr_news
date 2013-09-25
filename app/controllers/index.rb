@@ -31,6 +31,17 @@ get '/submissions/:user_id' do
   erb :submissions
 end
 
+get '/postvote/:post_id' do
+  Post.find(params[:post_id]).votes << Vote.create(user_id: session[:user_id])
+  redirect '/'
+end
+
+get '/commentvote/:post_id' do
+  Comment.find(params[:post_id]).votes << Vote.create(user_id: session[:user_id])
+  redirect "/post/#{params[:post_id]}"
+end
+
+
 #####################################
 
 post '/comment/:post_id' do
@@ -61,4 +72,7 @@ post '/submit' do
   Post.create(title: params[:title], url: params[:url], user_id: session[:user_id])
   redirect to('/')
 end
+
+
+  
 
