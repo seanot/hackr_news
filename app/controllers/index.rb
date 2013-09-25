@@ -1,4 +1,8 @@
 get '/' do
-  # Look in app/views/index.erb
   erb :index
+end
+
+get '/post/:post_id'
+  @post_id = params[:post_id]
+  erb :comments
 end
