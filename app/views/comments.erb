@@ -12,6 +12,7 @@
 <% @post.comments.each do |comment| %>
 <li><%= comment.text%></a>
 <p>by: <a href="/user/<%= comment.user_id%>"><%=comment.user.email%></a></p></li>
+<% if session[:user_id] %><a href='/commentvote/<%= comment.post_id %>'>Vote!</a><%= comment.votes.count %><% end %>
 <%end%>
 </ul>
 
