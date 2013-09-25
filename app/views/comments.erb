@@ -2,8 +2,16 @@
 <a href="/post/<%= @post.url%>"><%= @post.title%></a>
 <p>by: <a href="/user/<%= @post.user.id%>"><%=@post.user.email%></a></p>
 
-
-<textarea name="comment">
-  
-
+<form name="comment" method="post">
+<textarea name="text" rows="6" cols="30">
 </textarea>
+<input type="submit" value="submit">
+</form>
+
+<ul>
+<% @post.comments.all.each do |post| %>
+<li><a href="/post/<%= post.url%>"><%= post.title%></a>
+<p>by: <a href="/user/<%= post.user.id%>"><%=post.user.email%></a></p></li>
+<%end%>
+</ul>
+
