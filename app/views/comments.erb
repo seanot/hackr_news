@@ -1,0 +1,17 @@
+
+<a href="<%= @post.url%>"><%= @post.title%></a>
+<p>by: <a href="/user/<%= @post.user.id%>"><%=@post.user.email%></a></p>
+
+<form name="comment" method="POST" action="/comment/<%=@post.id%>">
+<textarea name="text" rows="6" cols="30">
+</textarea>
+<input type="submit" value="submit">
+</form>
+
+<ul>
+<% @post.comments.each do |comment| %>
+<li><%= comment.text%></a>
+<p>by: <a href="/user/<%= comment.user_id%>"><%=comment.user.email%></a></p></li>
+<%end%>
+</ul>
+

@@ -1,0 +1,6 @@
+<ul>
+<% @user.posts.each do |post| %>
+<li><a href="<%= post.url%>"><%= post.title%></a>
+<p>by: <a href="/user/<%= post.user.id%>"><%=post.user.email%></a> <a href='/post/<%=post.id%>'>Comments</a></p></li>
+<%end%>
+</ul>

@@ -1,0 +1,7 @@
+Comments by: <%= @user.email %>
+
+<ul>
+  <% @user.comments.each do |comment| %>
+    <li><%= comment.text%></a>
+  <%end%>
+</ul>
