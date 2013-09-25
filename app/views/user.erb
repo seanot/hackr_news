@@ -1,0 +1,5 @@
+user: <%= @user.email %>
+created: <%= @user.created_at %>
+<br>
+<a href="/submissions/<%= @user.id %>">Submissions</a>
+<a href="/comments/<%= @user.id %>">Comments</a>

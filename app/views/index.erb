@@ -1,7 +1,14 @@
 <ul>
 <% Post.all.each do |post| %>
-<li><a href="/post/<%= post.url%>"><%= post.title%></a>
-<p>by: <a href="/user/<%= post.user.id%>"><%=post.user.email%></a></p></li>
+<li><a href="<%= post.url%>"><%= post.title%></a>
+<p>by: <a href="/user/<%= post.user.id%>"><%=post.user.email%></a> <a href='/post/<%=post.id%>'>Comments</a></p></li>
 <%end%>
 </ul>
 
+<% if session[:user_id] %>
+  <form name="articlesubmit" action='/submit' method="POST">
+    <label for="url">URL<input type='text' name='url'></label>
+    <label for="title">Title<input type='text' name='title'></label>
+    <input type="submit" value="Submit">
+  </form>
+<% end %>

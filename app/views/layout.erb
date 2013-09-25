@@ -20,6 +20,11 @@
   <body>
     <nav>
       <a href="/">Home</a>
+      <% if current_user %>
+        <a href='/logout'>Logout</a>
+      <% else %>
+        <a href='login'>Login</a>
+      <% end %>
     </nav>
     <div class="container">
       <%= yield %>
